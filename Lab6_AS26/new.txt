@@ -1,0 +1,4 @@
+Hello
+The dog sleeps
+Learning Python
+See you

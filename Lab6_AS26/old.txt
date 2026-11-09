@@ -1,0 +1,4 @@
+Hello
+The cat sleeps
+Learning Python
+Goodbye
