@@ -1,0 +1,31 @@
+Benchmark run1, Python 3.14.8, recursion limit 1000
+Part C1: time in seconds, best of 3 runs (CRASH = RecursionError)
+      n      random basic      random improved      sorted basic      sorted improved  duplicates basic  duplicates improved
+   1000            0.0006               0.0008             CRASH               0.0008            0.0045               0.0003
+   2000            0.0016               0.0019             CRASH               0.0016            0.0104               0.0003
+   4000            0.0026               0.0037             CRASH               0.0036            0.0397               0.0007
+   8000            0.0054               0.0083             CRASH               0.0085            0.1614               0.0014
+  16000            0.0117               0.0174             CRASH               0.0184             CRASH               0.0030
+  32000            0.0266               0.0378             CRASH               0.0374             CRASH               0.0063
+  64000            0.0559               0.0835             CRASH               0.0837             CRASH               0.0111
+
+Part C3: quicksort_improved on 100,000 random values, best of 5 rounds
+  cutoff  1: 0.1587 s
+  cutoff  4: 0.1469 s
+  cutoff  8: 0.1365 s
+  cutoff 16: 0.1342 s
+  cutoff 32: 0.1379 s
+  cutoff 64: 0.1552 s
+  best cutoff: 16
+
+Part C4: best version (cutoff 16) against sorted(), n = 100,000, best of 5
+      input  improved (s)  sorted() (s)   ratio
+     random        0.1365        0.0088     16x
+     sorted        0.1310        0.0004    298x
+ duplicates        0.0178        0.0041      4x
+
+Comparisons counted on the same input (algorithm cost, independent of language):
+      input      improved      sorted()    n log2 n
+     random     3,177,286     1,531,739   1,660,964
+     sorted     3,137,730        99,999   1,660,964
+ duplicates       548,797       714,264   1,660,964
