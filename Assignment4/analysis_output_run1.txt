@@ -1,0 +1,29 @@
+Analysis run1, Python 3.14.8
+C1: smallest counterexamples (times 0-4, fees 1-3, sizes 2 to 4)
+  earliest finish: 2 requests [(0, 1, 1), (0, 1, 2)]  greedy {'earliest finish': 1, 'highest fee': 2}  optimum 2
+      highest fee: 3 requests [(0, 1, 1), (0, 2, 2), (1, 2, 2)]  greedy {'earliest finish': 3, 'highest fee': 2}  optimum 3
+       both rules: 4 requests [(0, 1, 1), (0, 1, 2), (0, 2, 3), (1, 2, 2)]  greedy {'earliest finish': 3, 'highest fee': 3}  optimum 4
+
+C3: 1000 random inputs of 50 requests (greedy revenue / optimal revenue)
+            rule   average    worst    best   optimal in
+ earliest finish     0.819    0.454   1.000        2 / 1000
+     highest fee     0.915    0.689   1.000       88 / 1000
+
+Greedy optimal on small inputs (1000 inputs of 0 to 10 requests):
+  earliest finish: optimal on 650 of 1000 (65.0%)
+      highest fee: optimal on 960 of 1000 (96.0%)
+
+C4: doubling check, best of 5 runs (seconds; ratio = T(2n)/T(n))
+      n  greedy_earliest_finish      greedy_highest_fee           best_schedule
+   1000                  0.0001                  0.0076                  0.0003
+   2000          0.0003 (x1.89)          0.0292 (x3.83)          0.0007 (x2.11)
+   4000          0.0006 (x2.29)          0.1187 (x4.06)          0.0016 (x2.22)
+   8000          0.0014 (x2.20)          0.4728 (x3.98)          0.0034 (x2.13)
+  16000          0.0030 (x2.14)          1.9195 (x4.06)          0.0070 (x2.05)
+brute_force on requests that never overlap (one extra request at a time):
+  n = 10: 0.0015 s
+  n = 11: 0.0033 s  (x2.26)
+  n = 12: 0.0075 s  (x2.27)
+  n = 13: 0.0168 s  (x2.24)
+  n = 14: 0.0374 s  (x2.22)
+  n = 15: 0.0844 s  (x2.26)
